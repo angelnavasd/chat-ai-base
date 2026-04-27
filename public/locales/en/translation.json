@@ -1,0 +1,68 @@
+{
+  "login": {
+    "title": "AI Chat Base",
+    "subtitle": "Your AI assistant",
+    "googleButton": "Continue with Google",
+    "terms": "By continuing, you agree to our Terms of Service"
+  },
+  "sidebar": {
+    "title": "AI Chat Base",
+    "newChat": "New Chat",
+    "search": "Search history...",
+    "empty": "No conversations",
+    "settings": "Settings",
+    "logout": "Log out"
+  },
+  "chat": {
+    "placeholder": "Type your message...",
+    "warning": "AI Chat Base can make mistakes. Check important info.",
+    "copy": "Copied to clipboard",
+    "share": "Share",
+    "copied": "Copied",
+    "copyBtn": "Copy",
+    "insert": "Embed",
+    "startAt": "Start at",
+    "feedback": "Thanks for your feedback"
+  },
+  "settings": {
+    "title": "Settings",
+    "description": "Manage your account settings and preferences.",
+    "tabs": {
+      "account": "Account",
+      "general": "General",
+      "billing": "Subscription"
+    },
+    "account": {
+      "title": "Profile",
+      "description": "Your personal and account data.",
+      "defaultUser": "User",
+      "logoutTitle": "Log Out",
+      "logoutDesc": "Sign out of your current account on this device.",
+      "logoutBtn": "Log Out"
+    },
+    "general": {
+      "title": "General",
+      "description": "Adjust app appearance and behavior.",
+      "darkTheme": "Dark Theme",
+      "darkThemeDesc": "Toggle between light and dark theme.",
+      "sound": "Sound Effects",
+      "soundDesc": "Play a sound when receiving messages.",
+      "language": "Language",
+      "languageDesc": "Change application language."
+    },
+    "billing": {
+      "title": "Subscription & Usage",
+      "description": "Manage your plan and limits.",
+      "plan": "Current Plan: Free",
+      "limits": "Message limit: 50 / day",
+      "upgradeTitle": "Upgrade to Pro!",
+      "upgradeDesc": "Get access to advanced models (GPT-4o, Claude 3.5), unlimited messages and priority support.",
+      "upgradeBtn": "Upgrade with Paddle"
+    }
+  },
+  "common": {
+    "open": "Open",
+    "rename": "Rename",
+    "delete": "Delete"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "login": {
+    "title": "AI Chat Base",
+    "subtitle": "Tu asistente de inteligencia artificial",
+    "googleButton": "Continuar con Google",
+    "terms": "Al continuar, aceptas los términos de servicio"
+  },
+  "sidebar": {
+    "title": "AI Chat Base",
+    "newChat": "Nueva conversación",
+    "search": "Buscar en historial...",
+    "empty": "No hay conversaciones",
+    "settings": "Ajustes",
+    "logout": "Cerrar sesión"
+  },
+  "chat": {
+    "placeholder": "Escribe tu mensaje...",
+    "warning": "AI Chat Base puede cometer errores. Verifica la información importante.",
+    "copy": "Texto copiado al portapapeles",
+    "share": "Compartir",
+    "copied": "Copiado",
+    "copyBtn": "Copiar",
+    "insert": "Insertar",
+    "startAt": "Empezar en",
+    "feedback": "Gracias por tu feedback"
+  },
+  "settings": {
+    "title": "Ajustes",
+    "description": "Gestiona tu cuenta y preferencias.",
+    "tabs": {
+      "account": "Cuenta",
+      "general": "General",
+      "billing": "Suscripción"
+    },
+    "account": {
+      "title": "Perfil",
+      "description": "Tus datos personales y de cuenta.",
+      "defaultUser": "Usuario",
+      "logoutTitle": "Cerrar Sesión",
+      "logoutDesc": "Salir de la cuenta actual en este dispositivo.",
+      "logoutBtn": "Salir"
+    },
+    "general": {
+      "title": "General",
+      "description": "Ajusta la apariencia y comportamiento de la app.",
+      "darkTheme": "Tema Oscuro",
+      "darkThemeDesc": "Alternar entre tema claro y oscuro.",
+      "sound": "Efectos de Sonido",
+      "soundDesc": "Reproducir un sonido al recibir mensajes.",
+      "language": "Idioma",
+      "languageDesc": "Cambiar el idioma de la aplicación."
+    },
+    "billing": {
+      "title": "Suscripción y Uso",
+      "description": "Gestiona tu plan y límites.",
+      "plan": "Plan Actual: Free",
+      "limits": "Límite de mensajes: 50 / día",
+      "upgradeTitle": "¡Actualiza a Pro!",
+      "upgradeDesc": "Obtén acceso a modelos avanzados (GPT-4o, Claude 3.5), mensajes ilimitados y soporte prioritario.",
+      "upgradeBtn": "Mejorar Plan"
+    }
+  },
+  "common": {
+    "open": "Abrir",
+    "rename": "Renombrar",
+    "delete": "Eliminar"
+  }
+}
