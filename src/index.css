@@ -40,7 +40,7 @@
     --color-card: var(--card);
     --color-foreground: var(--foreground);
     --color-background: var(--background);
-    
+
     /* Remove all shadows to enforce flat design */
     --shadow-sm: none;
     --shadow: none;
@@ -83,7 +83,7 @@
     --chart-3: oklch(0.439 0 0);
     --chart-4: oklch(0.371 0 0);
     --chart-5: oklch(0.269 0 0);
-    --radius: 0.5rem; /* slightly less rounded for minimal look */
+    --radius: 0.5rem;
     --sidebar: oklch(0.98 0 0);
     --sidebar-foreground: oklch(0.12 0 0);
     --sidebar-primary: oklch(0.12 0 0);
@@ -92,6 +92,11 @@
     --sidebar-accent-foreground: oklch(0.12 0 0);
     --sidebar-border: oklch(0.92 0 0);
     --sidebar-ring: oklch(0.12 0 0);
+    /* Mobile safe area insets */
+    --sat: env(safe-area-inset-top, 0px);
+    --sar: env(safe-area-inset-right, 0px);
+    --sab: env(safe-area-inset-bottom, 0px);
+    --sal: env(safe-area-inset-left, 0px);
 }
 
 .dark {
@@ -132,11 +137,110 @@
   * {
     @apply border-border outline-ring/50;
     box-shadow: none !important;
+    /* Eliminate blue flash on tap in mobile browsers */
+    -webkit-tap-highlight-color: transparent;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
+
   html {
     @apply font-sans;
+    /* Prevent iOS font size adjustment on orientation change */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    /* Prevent elastic overscroll bounce that breaks fixed layouts */
+    overscroll-behavior: none;
+  }
+
+  /* Momentum-based native scroll on iOS */
+  .overflow-y-auto,
+  .overflow-x-auto,
+  [data-scroll] {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Universal scrollbar hide utility */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* 16px minimum on inputs prevents iOS auto-zoom on focus */
+  input,
+  textarea,
+  select {
+    font-size: max(16px, 1em);
+  }
+
+  /* Optimise tap responsiveness — no 300ms delay */
+  button,
+  [role="button"],
+  a {
+    touch-action: manipulation;
+  }
+}
+
+/* ── Bottom sheet base styles ─────────────────────────── */
+@layer components {
+  .bottom-sheet-content {
+    position: fixed !important;
+    inset-inline: 0 !important;
+    bottom: 0 !important;
+    top: auto !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-top-left-radius: 1.5rem !important;
+    border-top-right-radius: 1.5rem !important;
+    max-height: 92svh !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-bottom: max(1rem, var(--sab)) !important;
+  }
+
+  .bottom-sheet-handle {
+    width: 2.5rem;
+    height: 0.25rem;
+    border-radius: 9999px;
+    background-color: oklch(0.7 0 0 / 0.35);
+    margin: 0.625rem auto 0;
+    flex-shrink: 0;
+  }
+
+  /* Safe-area padding helpers */
+  .pb-safe {
+    padding-bottom: max(0.5rem, var(--sab));
+  }
+  .pt-safe {
+    padding-top: var(--sat);
+  }
+  .pl-safe {
+    padding-left: var(--sal);
+  }
+  .pr-safe {
+    padding-right: var(--sar);
+  }
+}
+
+/* ── Touch-device: make hover-gated elements visible ──── */
+@media (hover: none) {
+  .touch-visible {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+}
+
+/* ── Reduced motion ───────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

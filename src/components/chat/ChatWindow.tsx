@@ -63,16 +63,19 @@ export function ChatWindow({ chatId, messages, isLoading }: ChatWindowProps) {
     const state = location.state as { initialMessage?: string } | null;
     if (state?.initialMessage) {
       handleSend(state.initialMessage);
-      // Clear the state so we don't send it again on reload
       navigate(location.pathname, { replace: true, state: {} });
     }
   }, [location.state, location.pathname, handleSend, navigate]);
 
   return (
     <div className="flex flex-1 flex-col overflow-hidden">
-      {/* Messages area */}
-      <div ref={containerRef} className="flex-1 overflow-y-auto">
-        <div className="mx-auto max-w-3xl space-y-6 px-4 py-6">
+      {/* Messages area — momentum scroll on iOS */}
+      <div
+        ref={containerRef}
+        className="flex-1 overflow-y-auto"
+        style={{ WebkitOverflowScrolling: 'touch' } as React.CSSProperties}
+      >
+        <div className="mx-auto max-w-3xl space-y-4 md:space-y-6 px-3 md:px-4 py-4 md:py-6">
           {isLoading ? (
             <div className="flex items-center justify-center py-12">
               <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
@@ -83,7 +86,6 @@ export function ChatWindow({ chatId, messages, isLoading }: ChatWindowProps) {
                 <MessageBubble key={message.id} message={message} />
               ))}
 
-              {/* Optimistic user message */}
               {pendingUserMessage && (
                 <MessageBubble
                   message={{
@@ -99,7 +101,6 @@ export function ChatWindow({ chatId, messages, isLoading }: ChatWindowProps) {
                 />
               )}
 
-              {/* Streaming assistant response */}
               {isStreaming && (
                 <StreamingBubble content={streamedContent} sources={sources} />
               )}
