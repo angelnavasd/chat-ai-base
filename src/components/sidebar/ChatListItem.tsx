@@ -31,9 +31,9 @@ export function ChatListItem({ chat, onClick }: ChatListItemProps) {
     <div
       onClick={onClick}
       className={`
-        group flex cursor-pointer items-center justify-between gap-3 rounded-xl px-4 py-2.5 text-sm transition-all duration-200
+        group flex h-9 cursor-pointer items-center justify-between gap-2.5 rounded-lg px-3 text-[13px] transition-all duration-200
         ${isActive
-          ? 'bg-sidebar-accent/50 text-foreground font-semibold shadow-sm'
+          ? 'bg-sidebar-accent/50 text-foreground font-semibold'
           : 'text-muted-foreground font-medium hover:bg-sidebar-accent/30 hover:text-foreground'
         }
       `}
@@ -54,18 +54,30 @@ export function ChatListItem({ chat, onClick }: ChatListItemProps) {
             <MoreHorizontal className="h-4 w-4" />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-40 rounded-xl border-border/40 shadow-xl bg-popover/95 backdrop-blur-md">
-          <DropdownMenuItem onClick={onClick} className="gap-2 rounded-lg py-2 cursor-pointer">
-            <ExternalLink className="h-4 w-4" />
-            {t('common.open')}
+        <DropdownMenuContent 
+          align="end" 
+          sideOffset={4}
+          className="w-40 p-1 rounded-xl border border-white/5 shadow-2xl bg-zinc-950/90 backdrop-blur-md"
+        >
+          <DropdownMenuItem 
+            onClick={onClick} 
+            className="gap-2.5 rounded-lg px-2.5 py-1.5 cursor-pointer text-[13px] hover:bg-white/5 transition-colors"
+          >
+            <ExternalLink className="h-3.5 w-3.5 text-muted-foreground/70" />
+            <span className="font-medium">{t('common.open')}</span>
           </DropdownMenuItem>
-          <DropdownMenuItem className="gap-2 rounded-lg py-2 cursor-pointer">
-            <Pencil className="h-4 w-4" />
-            {t('common.rename')}
+          <DropdownMenuItem 
+            className="gap-2.5 rounded-lg px-2.5 py-1.5 cursor-pointer text-[13px] hover:bg-white/5 transition-colors"
+          >
+            <Pencil className="h-3.5 w-3.5 text-muted-foreground/70" />
+            <span className="font-medium">{t('common.rename')}</span>
           </DropdownMenuItem>
-          <DropdownMenuItem onClick={handleDelete} className="gap-2 rounded-lg py-2 text-destructive focus:text-destructive focus:bg-destructive/10 cursor-pointer">
-            <Trash2 className="h-4 w-4" />
-            {t('common.delete')}
+          <DropdownMenuItem 
+            onClick={handleDelete} 
+            className="gap-2.5 rounded-lg px-2.5 py-1.5 text-destructive focus:text-destructive focus:bg-destructive/10 cursor-pointer text-[13px] transition-colors"
+          >
+            <Trash2 className="h-3.5 w-3.5" />
+            <span className="font-medium">{t('common.delete')}</span>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

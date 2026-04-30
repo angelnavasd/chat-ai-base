@@ -66,7 +66,7 @@ export function AppLayout() {
           hidden lg:flex flex-col
           bg-sidebar border-r border-border/30
           transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]
-          ${sidebarCollapsed ? 'w-[80px]' : 'w-[280px]'}
+          ${sidebarCollapsed ? 'w-[68px]' : 'w-[260px]'}
         `}
       >
         <Sidebar
@@ -104,14 +104,8 @@ export function AppLayout() {
             <Button
               variant="ghost"
               size="icon"
-              className="h-10 w-10 rounded-full hover:bg-muted/60 shrink-0"
-              onClick={() => {
-                if (window.innerWidth >= 1024) {
-                  setSidebarCollapsed(!sidebarCollapsed);
-                } else {
-                  setSidebarOpen(!sidebarOpen);
-                }
-              }}
+              className="h-10 w-10 rounded-full hover:bg-muted/60 shrink-0 lg:hidden"
+              onClick={() => setSidebarOpen(!sidebarOpen)}
             >
               <Menu className="h-5 w-5" />
             </Button>
