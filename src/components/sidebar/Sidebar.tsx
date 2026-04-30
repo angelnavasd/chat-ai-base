@@ -90,9 +90,9 @@ export function Sidebar({ onClose, isCollapsed, onToggleCollapse }: SidebarProps
                 variant="ghost"
                 size="icon"
                 onClick={onToggleCollapse}
-                className="h-9 w-9 rounded-lg hover:bg-sidebar-accent/50 text-muted-foreground transition-colors shrink-0"
+                className="h-7 w-7 rounded-md hover:bg-white/[0.05] text-muted-foreground/40 hover:text-foreground transition-all duration-300 shrink-0"
               >
-                <PanelLeft className="h-4.5 w-4.5" />
+                <PanelLeft className="h-4 w-4" />
               </Button>
             )}
           </div>
@@ -113,8 +113,8 @@ export function Sidebar({ onClose, isCollapsed, onToggleCollapse }: SidebarProps
               <Plus className="h-4.5 w-4.5 shrink-0" />
             ) : (
               <>
-                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white text-black">
-                  <Plus className="h-4 w-4" />
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#10b981] text-white shadow-lg shadow-emerald-500/20">
+                  <Plus className="h-4 w-4" strokeWidth={3} />
                 </div>
                 <span className="text-[13px] font-semibold text-foreground whitespace-nowrap">
                   Nuevo chat
@@ -128,22 +128,22 @@ export function Sidebar({ onClose, isCollapsed, onToggleCollapse }: SidebarProps
         <div className={`flex flex-col flex-1 overflow-hidden transition-all duration-300 ${isCollapsed ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
           {/* Search */}
           <div className="px-4 mb-4">
-            <div className="relative group">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground/30 group-focus-within:text-foreground group-focus-within:scale-110 transition-all duration-300" />
+            <div className="relative group focus-glow rounded-lg transition-all duration-500">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground/20 group-focus-within:text-foreground/50 transition-all duration-500" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={t('sidebar.search')}
-                className="w-full h-9 bg-sidebar-accent/25 hover:bg-sidebar-accent/35 focus:bg-sidebar-accent/40 rounded-lg border border-white/5 focus:border-white/10 pl-8 pr-4 text-[13px] text-foreground transition-all duration-300 focus:outline-none placeholder:text-muted-foreground/30 focus:placeholder:text-muted-foreground/50"
+                className="w-full h-9 bg-white/[0.02] hover:bg-white/[0.04] focus:bg-white/[0.05] rounded-lg pl-8 pr-4 text-[12px] text-foreground transition-all duration-500 focus:outline-none placeholder:text-muted-foreground/20 focus:placeholder:text-muted-foreground/40"
               />
             </div>
           </div>
 
           {/* Chat list */}
-          <div className="flex-1 overflow-y-auto px-2">
+          <div className="flex-1 overflow-y-auto px-2 custom-scrollbar">
             <div className="px-2 mb-2">
-              <h2 className="text-[10px] font-semibold uppercase tracking-[0.1em] text-muted-foreground/30 select-none">
+              <h2 className="text-[9px] font-bold uppercase tracking-[0.2em] text-muted-foreground/20 select-none">
                 Chats
               </h2>
             </div>
